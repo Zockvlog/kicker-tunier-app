@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Kicker-Turnier</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button id="menuButton">☰ Menü</button>
+
+<div id="menu" class="menu">
+  <h2>Kicker-Turnier Admin</h2>
+
+  <div id="login">
+    <input type="password" id="password" placeholder="Admin Passwort">
+    <label class="pwToggle">
+      <input type="checkbox" id="showPw"> Passwort anzeigen
+    </label>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div class="backgroundControls">
+    <h3>Hintergrund</h3>
+    <button onclick="setBackground('white')">Weiß</button>
+    <button onclick="setBackground('black')">Schwarz</button>
+    <button onclick="setBackground('gradient')">Rot → Blau</button>
+  </div>
+
+  <div id="adminBereich" class="hidden">
+    <h3>Spieler eintragen</h3>
+    <input type="text" id="spielerName" placeholder="Spielername">
+    <button onclick="spielerHinzufuegen()">Hinzufügen</button>
+    <button onclick="resetSpieler()" class="resetButton">Turnier reset</button>
+
+    <button onclick="adminChampionMode()" class="championButton">
+      🏆 Champion bestimmen
+    </button>
+
+    <button onclick="logout()" class="logoutButton">Logout</button>
+
+    <h4>Spielerliste</h4>
+    <ul id="spielerListe"></ul>
+  </div>
+</div>
+
+<div id="turnier">
+  <h2>Turnierbaum</h2>
+
+  <div id="championBox" class="championBox hidden">
+    <div class="championTitle">🏆 SIEGER 🏆</div>
+    <div id="championName" class="championName"></div>
+  </div>
+
+  <div id="baumWrapper">
+    <svg id="baumLines"></svg>
+    <div id="baum" class="baum"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
