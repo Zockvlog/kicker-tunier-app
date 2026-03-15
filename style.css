@@ -1,0 +1,157 @@
+* { box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 20px;
+  transition: background 0.5s, color 0.5s;
+}
+
+body.black { background: #111; color: white; }
+body.gradient { background: linear-gradient(135deg, red, blue); color: white; }
+
+#menuButton {
+  font-size: 22px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.menu {
+  width: 300px;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  position: fixed;
+  top: 60px;
+  left: -320px;
+  transition: left 0.3s;
+  z-index: 9999;
+}
+
+.menu.open { left: 20px; }
+
+body.black .menu,
+body.gradient .menu {
+  background: #222;
+  color: white;
+}
+
+.hidden { display: none; }
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 6px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.resetButton { background: #ff5555; color: white; }
+.logoutButton { background: #777; color: white; }
+
+.championButton {
+  background: gold;
+  color: black;
+  font-weight: bold;
+}
+
+.backgroundControls { margin-top: 10px; }
+.backgroundControls button {
+  width: auto;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#turnier { margin-top: 40px; overflow-x: auto; padding-bottom: 20px; }
+
+#baumWrapper { position: relative; min-height: 400px; }
+
+#baumLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.baum {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 40px;
+  align-items: start;
+}
+
+.match {
+  background: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-width: 200px;
+  border-radius: 6px;
+  margin: 0 auto;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.match:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.match.winner {
+  border: 3px solid green;
+  background: #d4ffd4;
+}
+
+.match button {
+  width: auto;
+  margin: 6px 4px 0 4px;
+}
+
+.finale {
+  border-width: 3px;
+}
+
+/* GOLD FLOW */
+body.championMode {
+  box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.8);
+  animation: goldPulse 1.5s infinite alternate;
+}
+
+@keyframes goldPulse {
+  from { box-shadow: inset 0 0 40px rgba(255, 215, 0, 0.6); }
+  to { box-shadow: inset 0 0 80px rgba(255, 215, 0, 1); }
+}
+
+/* SIEGER BOX */
+.championBox {
+  border: 2px solid gold;
+  background: rgba(255, 255, 200, 0.9);
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.championTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: goldenrod;
+}
+
+.championName {
+  font-size: 24px;
+  font-weight: bold;
+  color: darkgoldenrod;
+}
